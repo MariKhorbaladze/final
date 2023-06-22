@@ -222,7 +222,7 @@ button:active {
  }
  
  button:hover span {
-  color: black;
+  color: #645bff;
  }
  
  button::before,
@@ -317,3 +317,8 @@ button:hover .arrow:before {
   right: 0;
 }
 
+.sign { 
+  margin-left: 10%;
+  
+  
+}
