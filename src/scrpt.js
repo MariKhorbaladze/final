@@ -1,5 +1,4 @@
 
-
 var photos = [
   {
     url: "https://nypost.com/wp-content/uploads/sites/2/2023/05/NYPICHPDPICT000010127200.jpg",
@@ -53,300 +52,159 @@ photos.forEach(function(photo) {
 
 
 
+// // // Get the link element
+// ainer.appendChild(paragraph);
+// //
+// // });
+
+// 3
 // // Get the link element
-ainer.appendChild(paragraph);
-//
+// var newLink = document.getElementById("newLink");
+
+// // Get the section element where you want to navigate
+// var newSection = document.getElementById("newSection");
+
+// // Add a click event listener to the link
+// newLink.addEventListener("click", function(event) {
+//   event.preventDefault(); // Prevent the default behavior of the link
+
+//   // Scroll to the section
+//   newSection.scrollIntoView({ behavior: "smooth" });
 // });
-
-3
-// Get the link element
-var newLink = document.getElementById("newLink");
-
-// Get the section element where you want to navigate
-var newSection = document.getElementById("newSection");
-
-// Add a click event listener to the link
-newLink.addEventListener("click", function(event) {
-  event.preventDefault(); // Prevent the default behavior of the link
-
-  // Scroll to the section
-  newSection.scrollIntoView({ behavior: "smooth" });
-});
 
 
 // 50vacancies
-page = 3
-pagesize = 10
-start = pagesize*page-pagesize
-end = pagesize*page
+// page = 3
+// pagesize = 10
+// start = pagesize*page-pagesize
+// end = pagesize*page
 
-{
-  "job-count"; 50,
-  "jobs" [
-    {
-      "id": 1713457,
-      "url": "https://remotive.com/remote-jobs/hr/talent-partner-1713457",
-      "title": "Talent Partner",
-      "company_name": "Atlan",
-      "company_logo": "https://remotive.com/job/1713457/logo",
-      "category": "Human Resources",
-      "tags": [
-        "data science",
-        "go",
-        "salesforce",
-        "video",
-        "Figma",
-        "agile",
-        "healthcare",
-        "Snowflake",
-        "startup",
-        "troubleshooting",
-        "github"
-      ],
-      "job_type": "full_time",
-      "publication_date": "2023-06-26T01:39:47",
-      "candidate_required_location": "USA",
-      "salary": "1500%"
-    }
-  ]
-}
+// var newLink = document.getElementById("newLink");
+// var newSection = document.getElementById("newSection");
 
-  "id"; 1719032,
-  "url"; "https://remotive.com/remote-jobs/data/data-protection-manager-3483-1719032",
-  "title";"Data Protection Manager (3483)",
-  "company_name"; "GBG",
-  "company_logo"; "https://remotive.com/job/1719032/logo",
-  "category"; "Data",
-  "tags"; [
-      "chat",
-      "travel",
-      "CCPA",
-  ],
-  "job_type"; "full_time",
-  "publication_date"; "2023-06-25T23:40:00",
-  "candidate_required_location"; "USA",
-  "salary"; "2000$" 
+// newLink.addEventListener("click", function(event) {
+//   event.preventDefault();
 
+//   // Fetch job data from the API
+//   fetch("https://remotive.io/api/remote-jobs?limit=50")
+//     .then(response => response.json())
+//     .then(data => {
+//       // Clear existing job listings
+//       newSection.innerHTML = "";
 
-  
-    "id"; 1713100,
-    "url"; "https://remotive.com/remote-jobs/marketing/vp-marketing-1713100",
-    "title"; "VP, Marketing ",
-    "company_name"; "ReCharge",
-    "company_logo"; "https://remotive.com/job/1713100/logo",
-    "category"; "Marketing",
-    "tags"; [
-        "ecommerce",
-        "saas",
-        "salesforce",
-        "seo",
-        "social media",
-        "product marketing",
-        "content marketing",
-        "digital marketing",
-        "content strategy",
-        "account management",
-        "partnerships",
-        "lead generation",
-        "direct sales",
-        "performance marketing"
-    ],
-    "job_type"; "",
-    "publication_date"; "2023-06-25T23:39:43",
-    "candidate_required_location"; "Worldwide",
-    "salary"; "4000$"
+//       // Display the job information
+//       data.forEach(job => {
+//         var jobElement = document.createElement("div");
+//         jobElement.textContent = job.title; // Customize this according to your job data structure
+//         newSection.appendChild(jobElement);
+//       });
+//     })
+//     .catch(error => {
+//       console.error("Error fetching jobs:", error);
+//     });
 
+//   // Scroll to the section
+//   newSection.scrollIntoView({ behavior: "smooth" });
+// });
 
-    "id"; 1717294,
-            "url"; "https://remotive.com/remote-jobs/software-dev/application-support-engineer-1717294",
-            "title"; "Application Support Engineer",
-            "company_name"; "Billtrust",
-            "company_logo"; "https://remotive.com/job/1717294/logo",
-            "category"; "Software Development",
-            "tags"; [
-                "cloud",
-                "go",
-                "java",
-                "javascript",
-                "python",
-                "sql",
-                "UI/UX",
-                "agile",
-                "automation",
-                "data analysis",
-                "business development",
-                "MySQL",
-                "scripting",
-                "Linux/Unix",
-                "computer science",
-                "InDesign",
-                "diversity",
-                "insurance"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-06-25T23:39:33",
-            "candidate_required_location"; "USA",
-            "salary"; "2000#"
+////asd/
 
-            "id"; 1710673,
-            "url"; "https://remotive.com/remote-jobs/writing/entertainment-writer-1710673",
-            "title"; "Entertainment Writer",
-            "company_name"; "GAMURS Group",
-            "company_logo"; "https://remotive.com/job/1710673/logo",
-            "category"; "Writing",
-            "tags"; [
-                "social media",
-                "wordpress"
-            ],
-            "job_type"; "freelance",
-            "publication_date"; "2023-06-25T21:39:08",
-            "candidate_required_location"; "USA",
-            "salary"; "3000#"
+// var newLink = document.getElementById("newLink");
+// var newSection = document.getElementById("newSection");
 
-            "id"; 1712782,
-            "url"; "https://remotive.com/remote-jobs/product/product-manager-1712782",
-            "title"; "Product Manager",
-            "company_name"; "Blackbird.AI",
-            "company_logo"; "https://remotive.com/job/1712782/logo",
-            "category"; "Product",
-            "tags"; [
-                "business intelligence",
-                "saas",
-                "security",
-                "AI/ML",
-                "research",
-                "product management",
-                "market research",
-                "platform security"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-06-25T21:38:59",
-            "candidate_required_location"; "USA",
-            "salary"; "4800$"
+// var currentPage = 1;
+// var jobsPerPage = 10;
+// var totalJobs = 50;
+// var totalPages = Math.ceil(totalJobs / jobsPerPage);
 
-            "id"; 1693688,
-            "url"; "https://remotive.com/remote-jobs/product/product-owner-1693688",
-            "title"; "Product Owner",
-            "company_name"; "roadie",
-            "company_logo"; "https://remotive.com/job/1693688/logo",
-            "category"; "Product",
-            "tags"; [
-                "UI/UX",
-                "agile",
-                "research",
-                "product management",
-                "product development",
-                "product owner",
-                "insurance"
-            ],
-            "job_type"; "",
-            "publication_date"; "2023-06-25T19:39:38",
-            "candidate_required_location";"USA",
-            "salary"; ""  
+// newLink.addEventListener("click", function(event) {
+//   event.preventDefault();
 
-            "id"; 1606658,
-            "url"; "https://remotive.com/remote-jobs/software-dev/senior-unity-developer-1606658",
-            "title"; "Senior Unity Developer",
-            "company_name"; "Proxify",
-            "company_logo"; "https://remotive.com/job/1606658/logo",
-            "category"; "Software Development",
-            "tags"; [
-                "C",
-                "C#",
-                "unity",
-                "unity3D",
-                "Typescript ",
-                "scripting",
-                "troubleshooting",
-                "testing"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-05-28T16:01:02",
-            "candidate_required_location"; "Worldwide",
-            "salary"; "$40k - $70k"
+//   // Calculate the starting index and ending index for the current page
+//   var startIndex = (currentPage - 1) * jobsPerPage;
+//   var endIndex = Math.min(startIndex + jobsPerPage, totalJobs);
 
-            "id"; 1697173,
-            "url"; "https://remotive.com/remote-jobs/finance-legal/staff-accountant-1697173",
-            "title"; "Staff Accountant",
-            "company_name";"Discourse",
-            "company_logo"; "https://remotive.com/job/1697173/logo",
-            "category";"Finance / Legal",
-            "tags"; [
-                "accounting",
-                "admin",
-                "excel",
-                "saas",
-                "open source",
-                "blockchain",
-                "payroll",
-                "onboarding",
-                "SOLID",
-                "startup",
-                "banking"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-05-30T18:18:03",
-            "candidate_required_location"; "USA",
-            "salary"; "25k"
+//   // Fetch job data from the API
+//   fetch("https://remotive.io/api/remote-jobs")
+//     .then(response => response.json())
+//     .then(data => {
+//       // Clear existing job listings
+//       newSection.innerHTML = "";
 
-            "id"; 1576731,
-            "url"; "https://remotive.com/remote-jobs/software-dev/migrations-specialist-1576731",
-            "title"; "Migrations Specialist",
-            "company_name"; "Discourse",
-            "company_logo"; "https://remotive.com/job/1576731/logo",
-            "category"; "Software Development",
-            "tags" [
-                "admin",
-                "CSS",
-                "postgresql",
-                "ruby/rails",
-                "sql",
-                "open source",
-                "blockchain",
-                "MySQL",
-                "debian",
-                "chat",
-                "troubleshooting",
-                "Linux/Unix",
-                "infrastructure"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-05-31T00:01:05",
-            "candidate_required_location"; "Americas",
-            "salary"; "39k"
+//       // Display the job information for the current page
+//       for (var i = startIndex; i < endIndex; i++) {
+//         var job = data[i];
+//         var jobElement = document.createElement("div");
+//         jobElement.textContent = job.title; 
+//         newSection.appendChild(jobElement);
+//       }
+//     })
+//     .catch(error => {
+//       console.error("Error fetching jobs:", error);
+//     });
 
-            "id"; 1697847,
-            "url"; "https://remotive.com/remote-jobs/business/start-up-investment-analyst-1697847",
-            "title"; "Start Up Investment Analyst",
-            "company_name"; "fail ventures",
-            "company_logo"; "https://remotive.com/job/1697847/logo",
-            "category"; "Business",
-            "tags"; [
-                "social media",
-                "documentation",
-                "SOLID"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-05-31T11:48:27",
-            "candidate_required_location"; "Worldwide",
-            "salary"; "$45k - $55k"
+//   // Scroll to the section
+//   newSection.scrollIntoView({ behavior: "smooth" });
+// });
 
-            "id"; 1699349,
-            "url"; "https://remotive.com/remote-jobs/marketing/director-of-marketing-1699349",
-            "title"; "Director of Marketing",
-            "company_name"; "WhiteHat Engineering",
-            "company_logo"; "https://remotive.com/job/1699349/logo",
-            "category"; "Marketing",
-            "tags"; [
-                "video",
-                "research",
-                "market research",
-                "product development",
-                "customer acquisition",
-                "brand design",
-                "user acquisition"
-            ],
-            "job_type"; "full_time",
-            "publication_date"; "2023-06-02T06:51:55",
-            "candidate_required_location"; "USA",
-            "salary"; "89k"
+// // Next page button click event
+// document.getElementById("nextButton").addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if (currentPage < totalPages) {
+//     currentPage++;
+//     newLink.click(); // Trigger the click event of the "All jobs" link
+//   }
+// });
+
+// // Previous page button click event
+// document.getElementById("prevButton").addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if (currentPage > 1) {
+//     currentPage--;
+//     newLink.click(); // Trigger the click event of the "All jobs" link
+//   }
+// });
+
+// var newLinks = document.getElementsByClassName("newLink");
+// var newSection = document.getElementById("newSection");
+
+// var currentPage = 1;
+// var jobsPerPage = 10;
+// var totalJobs = 50;
+// var totalPages = Math.ceil(totalJobs / jobsPerPage);
+
+// // Loop through each newLink element and add the click event listener
+// for (var i = 0; i < newLinks.length; i++) {
+//   newLinks[i].addEventListener("click", function(event) {
+//     event.preventDefault();
+
+//     // Calculate the starting index and ending index for the current page
+//     var startIndex = (currentPage - 1) * jobsPerPage;
+//     var endIndex = Math.min(startIndex + jobsPerPage, totalJobs);
+
+//     // Fetch job data from the API
+//     fetch("https://remotive.io/api/remote-jobs")
+//       .then(response => response.json())
+//       .then(data => {
+//         // Clear existing job listings
+//         newSection.innerHTML = "";
+
+//         // Display the job information for the current page
+//         for (var i = startIndex; i < endIndex; i++) {
+//           var job = data.jobs[i];
+//           var jobElement = document.createElement("div");
+//           jobElement.textContent = job.title;
+//           newSection.appendChild(jobElement);
+//         }
+//       })
+//       .catch(error => {
+//         console.error("Error fetching jobs:", error);
+//       });
+
+//     // Scroll to the section
+//     newSection.scrollIntoView({ behavior: "smooth" });
+//   });
+// }
+
+// // Trigger the click event of the "All jobs" link initially
+// newLinks[1].click();

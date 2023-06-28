@@ -1,0 +1,158 @@
+
+#newSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .job-listing {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .job-listing:hover {
+    transform: translateY(-5px);
+  }
+  
+  .job-listing h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .job-listing p {
+    margin-bottom: 5px;
+  }
+  
+  .job-listing .company {
+    color: #888888;
+  }
+  
+  .job-listing .location {
+    color: #555555;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
+ 
+  }
+  
+  .pagination button {
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  
+  .pagination button.active {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  
+  .pagination button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* .container {
+  }
+  
+  #newSection {
+  } */
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination-buttons button {
+    /* Existing button styles */
+    margin: 0 5px;
+  }
+  
+  /* Style for job details page */
+.job-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.job-details-content {
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-details h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.job-details p {
+  margin-bottom: 5px;
+}
+
+.job-details .company {
+  color: #888888;
+}
+
+.job-details .location {
+  color: #555555;
+}
+
+.job-details .description {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.job-details .apply-btn {
+  display: inline-block;
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.job-details .apply-btn:hover {
+  background-color: #555555;
+}
+
+  
+  

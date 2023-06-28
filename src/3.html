@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Job Listings</title>
+  <script>
+    // Your JavaScript code here
+    var newLink = document.getElementById("newLink");
+    var newSection = document.getElementById("newSection");
+
+    var currentPage = 6;
+    var jobsPerPage = 10;
+    var totalJobs = 50;
+    var totalPages = Math.ceil(totalJobs / jobsPerPage);
+
+    newLink.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      // Calculate the starting index and ending index for the current page
+      var startIndex = (currentPage - 1) * jobsPerPage;
+      var endIndex = Math.min(startIndex + jobsPerPage, totalJobs);
+
+      // Fetch job data from the API
+      fetch("https://remotive.io/api/remote-jobs")
+        .then(response => response.json())
+        .then(data => {
+          // Clear existing job listings
+          newSection.innerHTML = "";
+
+          // Display the job information for the current page
+          for (var i = startIndex; i < endIndex; i++) {
+            var job = data.jobs[i];
+            var jobElement = document.createElement("div");
+            jobElement.textContent = job.title;
+            newSection.appendChild(jobElement);
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching jobs:", error);
+        });
+
+      // Scroll to the section
+      newSection.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Next page button click event
+    document.getElementById("nextButton").addEventListener("click", function(event) {
+      event.preventDefault();
+      if (currentPage < totalPages) {
+        currentPage++;
+        newLink.click(); // Trigger the click event of the "All jobs" link
+      }
+    });
+
+    // Previous page button click event
+    document.getElementById("prevButton").addEventListener("click", function(event) {
+      event.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        newLink.click(); // Trigger the click event of the "All jobs" link
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <a href="#" id="newLink">All jobs</a>
+    <div id="newSection"></div>
+    <div class="pagination">
+      <button id="prevButton">Previous</button>
+      <button id="nextButton">Next</button>
+    </div>
+  </div>
+  <!-- <script src="./scrpt.js"></script> -->
+</body>
+</html> -->
