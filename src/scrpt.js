@@ -1,46 +1,40 @@
-
-var photos = [
-  {
-    url: "https://nypost.com/wp-content/uploads/sites/2/2023/05/NYPICHPDPICT000010127200.jpg",
-    width: 300,
-    height: 250
-  },
-  
-  {
-    url: "https://images.squarespace-cdn.com/content/v1/5ede2122e582b96630a4a73e/1609347443412-BY6YPT4NB3RHTLCNZ7O7/image-asset.jpeg?format=2500w",
-    width: 300,
-    height: 250
-  },
-  {
-    url: "https://www.investopedia.com/thmb/diMRGUPbZ4-I2a4VMyeTx5-TMLs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1349988090-cd961ecf897c4c3ba0502c9db09c59af.jpg",
-    width: 300,
-    height: 250
-  },
-  {
-    url: "https://images.squarespace-cdn.com/content/v1/5ede2122e582b96630a4a73e/1609375996518-DZU53FYNB3FMBYB1JHG6/HP-logo+2021.jpg?format=2500w",
-    width: 300,
-    height: 250
-  },
-   {
-    url: "https://images.squarespace-cdn.com/content/v1/5ede2122e582b96630a4a73e/1609375769634-EG1WOTIN7Y4MB01N8AV1/Domino%E2%80%99s-logo-2021.jpg?format=2500w",
-    width: 300,
-    height: 250
-  },
-  {
-    url: "https://images.squarespace-cdn.com/content/v1/5ede2122e582b96630a4a73e/1609354030550-9ZOL45B4SJTEL9DLA12J/KFC-Logo-2021.jpg?format=2500w",
-    width: 300,
-    height: 250
-  },
-];
-
-
 var container = document.getElementById("photoContainer");
+fetch("https://remotive.io/api/remote-jobs?limit=12")
+  .then(response => response.json())
+  .then(data => {
+    const jobs = data.jobs;
+    jobs.forEach(function(job) {
+      var div = document.createElement("div");
+      var img = document.createElement("img");
+      var paragraph = document.createElement("p");
+      div.classList.add("photoItem");
+      paragraph.classList.add("companyName");
+      div.appendChild(img);
+      div.appendChild(paragraph);
+    
+      img.src = job.company_logo;
+      img.width = 300;
+      img.height = 250;
 
+      paragraph.textContent = job.title;
+    
+      img.classList.add("photo");
+    
+      container.appendChild(div);
+      img.addEventListener("click", function() {
+        openJobInformationPage(job);
+      });
+
+    
+    });
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
 photos.forEach(function(photo) {
   var img = document.createElement("img");
 
   img.src = photo.url;
-
   img.width = photo.width;
   img.height = photo.height;
 
@@ -49,162 +43,175 @@ photos.forEach(function(photo) {
   container.appendChild(img);
 });
 
+ainer.appendChild(paragraph);
+
+page = 3
+pagesize = 10
+start = pagesize*page-pagesize
+end = pagesize*page
+
+var newLink = document.getElementById("newLink");
+var newSection = document.getElementById("newSection");
+
+newLink.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  fetch("https://remotive.io/api/remote-jobs?limit=50")
+    .then(response => response.json())
+    .then(data => {
+      newSection.innerHTML = "";
+
+      data.forEach(job => {
+        var jobElement = document.createElement("div");
+        jobElement.textContent = job.title; 
+        newSection.appendChild(jobElement);
+      });
+    })
+    .catch(error => {
+      console.error("Error fetching jobs:", error);
+    });
+
+  newSection.scrollIntoView({ behavior: "smooth" });
+});
 
 
 
-// // // Get the link element
-// ainer.appendChild(paragraph);
-// //
-// // });
+function openJobInformationPage(job) {
+  var newWindow = window.open("", "_blank");
 
-// 3
-// // Get the link element
-// var newLink = document.getElementById("newLink");
+  var htmlContent = `
+    <html>
+      <head>
+        <title>${job.title}</title>
+        <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #f5f5f5;
+        }
+      
+        h1 {
+          margin-bottom: 10px;
+          text-align: center;
+          color: #333;
+        }
+      
+        p {
+          margin-bottom: 20px;
+          text-align: center;
+          color: #666;
+        }
+      
+        .photoItem {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+          border-radius: 5px;
+          background-color: #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          position: relative;
+        }
+      
+        .photoItem:hover {
+          transform: translateY(-5px);
+        }
+      
+        .companyName {
+          font-weight: bold;
+          color: #333;
+        }
+      
+        .photo {
+          cursor: pointer;
+          border-radius: 5px;
+          max-width: 100%;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+        }
+      
+        .photo:hover {
+          transform: scale(1.05);
+        }
+      
+        .background-color {
+          background-color: #e6e6e6;
+        }
+      
+        .frame {
+          position: relative;
+          width: fit-content;
+          padding: 10px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+      
+      
+        body {
+          background: linear-gradient(to right, #e6e6e6, #f5f5f5);
+        }
+      
+        h1 {
+          font-size: 24px;
+          color: #333;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+      
+        p {
+          font-size: 16px;
+          color: #666;
+        }
+      
+        .companyName {
+          font-weight: bold;
+          color: #333;
+          margin-top: 10px;
+        }
+      
+        .photoItem {
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      
+        .photo {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+      
+        .photo:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+      
+        .photoItem:nth-child(odd) {
+          background-color: #f9f9f9;
+        }
+      
+        .frame {
+          position: relative;
+          padding: 10px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          overflow: hidden;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      </style>
+      
+      </head>
+      <body>
+        <h1>${job.title}</h1>
+        <img src="${job.company_logo}" width="300" height="250" alt="Company Logo">
+        <p>${job.description}</p>
+      </body>
+    </html>
+  `;
 
-// // Get the section element where you want to navigate
-// var newSection = document.getElementById("newSection");
-
-// // Add a click event listener to the link
-// newLink.addEventListener("click", function(event) {
-//   event.preventDefault(); // Prevent the default behavior of the link
-
-//   // Scroll to the section
-//   newSection.scrollIntoView({ behavior: "smooth" });
-// });
-
-
-// 50vacancies
-// page = 3
-// pagesize = 10
-// start = pagesize*page-pagesize
-// end = pagesize*page
-
-// var newLink = document.getElementById("newLink");
-// var newSection = document.getElementById("newSection");
-
-// newLink.addEventListener("click", function(event) {
-//   event.preventDefault();
-
-//   // Fetch job data from the API
-//   fetch("https://remotive.io/api/remote-jobs?limit=50")
-//     .then(response => response.json())
-//     .then(data => {
-//       // Clear existing job listings
-//       newSection.innerHTML = "";
-
-//       // Display the job information
-//       data.forEach(job => {
-//         var jobElement = document.createElement("div");
-//         jobElement.textContent = job.title; // Customize this according to your job data structure
-//         newSection.appendChild(jobElement);
-//       });
-//     })
-//     .catch(error => {
-//       console.error("Error fetching jobs:", error);
-//     });
-
-//   // Scroll to the section
-//   newSection.scrollIntoView({ behavior: "smooth" });
-// });
-
-////asd/
-
-// var newLink = document.getElementById("newLink");
-// var newSection = document.getElementById("newSection");
-
-// var currentPage = 1;
-// var jobsPerPage = 10;
-// var totalJobs = 50;
-// var totalPages = Math.ceil(totalJobs / jobsPerPage);
-
-// newLink.addEventListener("click", function(event) {
-//   event.preventDefault();
-
-//   // Calculate the starting index and ending index for the current page
-//   var startIndex = (currentPage - 1) * jobsPerPage;
-//   var endIndex = Math.min(startIndex + jobsPerPage, totalJobs);
-
-//   // Fetch job data from the API
-//   fetch("https://remotive.io/api/remote-jobs")
-//     .then(response => response.json())
-//     .then(data => {
-//       // Clear existing job listings
-//       newSection.innerHTML = "";
-
-//       // Display the job information for the current page
-//       for (var i = startIndex; i < endIndex; i++) {
-//         var job = data[i];
-//         var jobElement = document.createElement("div");
-//         jobElement.textContent = job.title; 
-//         newSection.appendChild(jobElement);
-//       }
-//     })
-//     .catch(error => {
-//       console.error("Error fetching jobs:", error);
-//     });
-
-//   // Scroll to the section
-//   newSection.scrollIntoView({ behavior: "smooth" });
-// });
-
-// // Next page button click event
-// document.getElementById("nextButton").addEventListener("click", function(event) {
-//   event.preventDefault();
-//   if (currentPage < totalPages) {
-//     currentPage++;
-//     newLink.click(); // Trigger the click event of the "All jobs" link
-//   }
-// });
-
-// // Previous page button click event
-// document.getElementById("prevButton").addEventListener("click", function(event) {
-//   event.preventDefault();
-//   if (currentPage > 1) {
-//     currentPage--;
-//     newLink.click(); // Trigger the click event of the "All jobs" link
-//   }
-// });
-
-// var newLinks = document.getElementsByClassName("newLink");
-// var newSection = document.getElementById("newSection");
-
-// var currentPage = 1;
-// var jobsPerPage = 10;
-// var totalJobs = 50;
-// var totalPages = Math.ceil(totalJobs / jobsPerPage);
-
-// // Loop through each newLink element and add the click event listener
-// for (var i = 0; i < newLinks.length; i++) {
-//   newLinks[i].addEventListener("click", function(event) {
-//     event.preventDefault();
-
-//     // Calculate the starting index and ending index for the current page
-//     var startIndex = (currentPage - 1) * jobsPerPage;
-//     var endIndex = Math.min(startIndex + jobsPerPage, totalJobs);
-
-//     // Fetch job data from the API
-//     fetch("https://remotive.io/api/remote-jobs")
-//       .then(response => response.json())
-//       .then(data => {
-//         // Clear existing job listings
-//         newSection.innerHTML = "";
-
-//         // Display the job information for the current page
-//         for (var i = startIndex; i < endIndex; i++) {
-//           var job = data.jobs[i];
-//           var jobElement = document.createElement("div");
-//           jobElement.textContent = job.title;
-//           newSection.appendChild(jobElement);
-//         }
-//       })
-//       .catch(error => {
-//         console.error("Error fetching jobs:", error);
-//       });
-
-//     // Scroll to the section
-//     newSection.scrollIntoView({ behavior: "smooth" });
-//   });
-// }
-
-// // Trigger the click event of the "All jobs" link initially
-// newLinks[1].click();
+  // Write the HTML content to the new window
+  newWindow.document.open();
+  newWindow.document.write(htmlContent);
+  newWindow.document.close();
+}
