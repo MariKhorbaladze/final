@@ -46,6 +46,7 @@
     align-items: center;
     flex-direction: column; 
     text-align: center;
+    
  
   }
   
@@ -58,47 +59,33 @@
     margin: 0 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+   
   }
   
   .pagination button:hover {
     background-color: #333333;
     color: #ffffff;
+    
   }
   
   .pagination button.active {
     background-color: #333333;
     color: #ffffff;
+    
   }
   
   .pagination button.disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    
   }
   
-  /* .container {
-  }
-  
-  #newSection {
-  } */
-  
-  .pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .pagination-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
   .pagination-buttons button {
-    /* Existing button styles */
     margin: 0 5px;
+    
   }
   
-  /* Style for job details page */
 .job-details {
   display: flex;
   flex-direction: column;
@@ -152,6 +139,7 @@
 
 .job-details .apply-btn:hover {
   background-color: #555555;
+  
 }
 
   

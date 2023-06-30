@@ -1,5 +1,79 @@
+
+var newJobsLink = document.getElementById("newJobsLink");
+newJobsLink.addEventListener("click", function(event) {
+  event.preventDefault();
+  openJobListingsPage();
+});
+
+function openJobListingsPage() {
+  var newWindow = window.open("", "_blank");
+  fetch("https://remotive.io/api/remote-jobs?limit=15")
+    .then(response => response.json())
+    .then(data => {
+      var jobList = data.jobs;
+
+      var jobListHtml = "";
+      var companyNameStyle = "font-weight: bold; color: #333;";
+
+      jobList.forEach(job => {
+        jobListHtml += "<div class='jobItem'>";
+        jobListHtml += "<p class='companyName' style='" + companyNameStyle + "'>" + job.company_name + "</p>";
+        jobListHtml += "<div class='jobDetails' style='display: none;'>" + job.description + "</div>";
+        jobListHtml += "</div>";
+      });
+
+      var htmlContent = "<html>" +
+        "<head>" +
+        "<style>" +
+        ".jobItem {" +
+        "padding: 20px;" +
+        "margin: 10px;" +
+        "border-radius: 5px;" +
+        "background-color: #FFFDD0;" +
+        "box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" +
+        "transition: transform 0.3s ease;" +
+        "position: relative;" +
+        "}" +
+        ".companyName {" +
+        "cursor: pointer;" +
+        companyNameStyle +
+        "}" +
+        ".jobDetails {" +
+        "margin-top: 10px;" +
+        "}" +
+        "</style>" +
+        "<script>" +
+        "var companyNames = document.getElementsByClassName('companyName');" +
+        "Array.from(companyNames).forEach(function(companyName) {" +
+        "companyName.addEventListener('click', function() {" +
+        "var jobDetails = this.nextElementSibling;" +
+        "if (jobDetails.style.display === 'none') {" +
+        "jobDetails.style.display = 'block';" +
+        "} else {" +
+        "jobDetails.style.display = 'none';" +
+        "}" +
+        "});" +
+        "});" +
+        "</script>" +
+        "</head>" +
+        "<body>" +
+        "<div id='jobList'>" +
+        jobListHtml +
+        "</div>" +
+        "</body>" +
+        "</html>";
+
+      newWindow.document.open();
+      newWindow.document.write(htmlContent);
+      newWindow.document.close();
+    })
+    .catch(error => {
+      console.error("Error fetching job listings:", error);
+    });
+}
+
 var container = document.getElementById("photoContainer");
-fetch("https://remotive.io/api/remote-jobs?limit=27")
+fetch("https://remotive.io/api/remote-jobs?limit=13")
   .then(response => response.json())
   .then(data => {
     const jobs = data.jobs;
@@ -56,7 +130,7 @@ var newSection = document.getElementById("newSection");
 newLink.addEventListener("click", function(event) {
   event.preventDefault();
 
-  fetch("https://remotive.io/api/remote-jobs?limit=50")
+  fetch("https://remotive.io/api/remote-jobs?limit=13")
     .then(response => response.json())
     .then(data => {
       newSection.innerHTML = "";

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="Website Icon" type="png" href="./img/logo.png">
+  <link rel="stylesheet" href="./job-listings.css">
+  <style>
+    .jobItem {
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .companyName {
+      cursor: pointer;
+      font-weight: bold;
+      color: #333;
+    }
+    .jobDetails {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button id="newJobsLink">Open Job Listings</button>
+
+  <script>
+    var newJobsLink = document.getElementById("newJobsLink");
+    newJobsLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      openJobListingsPage();
+    });
+
+    function openJobListingsPage() {
+      var newWindow = window.open("", "_blank");
+      fetch("https://remotive.io/api/remote-jobs?limit=13")
+        .then(response => response.json())
+        .then(data => {
+          var jobList = data.jobs;
+
+          var htmlContent = "<html>" +
+            "<head>" +
+            "<style>" +
+            ".jobItem {" +
+            "padding: 20px;" +
+            "margin: 10px;" +
+            "border-radius: 5px;" +
+            "background-color: #fff;" +
+            "box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" +
+            "transition: transform 0.3s ease;" +
+            "position: relative;" +
+            "}" +
+            ".companyName {" +
+            "cursor: pointer;" +
+            "font-weight: bold;" +
+            "color: #333;" +
+            "}" +
+            ".jobDetails {" +
+            "margin-top: 10px;" +
+            "}" +
+            "</style>" +
+            "<script>" +
+            "function showJobDetails(jobJson) {" +
+            "var job = JSON.parse(jobJson);" +
+            "var htmlContent = '<html>' +" +
+            "'<head>' +" +
+            "'<style>" +
+            ".jobDetails {" +
+            "padding: 20px;" +
+            "background-color: #fff;" +
+            "box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" +
+            "}" +
+            "'</style>' +" +
+            "'</head>' +" +
+            "'<body>' +" +
+            "'<h2>' + job.title + '</h2>' +" +
+            "'<p>' + job.description + '</p>' +" +
+            "'</body>' +" +
+            "'</html>';" +
+            "var detailsWindow = window.open('', '_blank');" +
+            "detailsWindow.document.open();" +
+            "detailsWindow.document.write(htmlContent);" +
+            "detailsWindow.document.close();" +
+            "}" +
+            
+            "</head>" +
+            "<body>" +
+            "<h1></h1>";
+
+          jobList.forEach(job => {
+            htmlContent += "<div class='jobItem'>";
+            htmlContent += "<p class='companyName' onclick='showJobDetails(" + JSON.stringify(job) + ")'>" + job.company_name + "</p>";
+            htmlContent += "</div>";
+          });
+
+          htmlContent += "</body>" +
+            "</html>";
+
+          newWindow.document.open();
+          newWindow.document.write(htmlContent);
+          newWindow.document.close();
+        })
+        .catch(error => {
+          console.error("Error fetching job listings:", error);
+        });
+    }
+  </script>
+  <script src="./new.js"></script>
+</body>
+</html>
+
